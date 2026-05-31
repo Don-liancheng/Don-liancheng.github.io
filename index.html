@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 工作经历展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 30px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .card-title i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .card-title h2 {
+            color: #333;
+            font-size: 1.4rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .timeline-header h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+
+        .timeline-header .company {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .timeline-header .date {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .timeline-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .timeline-description ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .timeline-description li {
+            margin-bottom: 5px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .contact-item i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .timeline-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>张三</h1>
+            <p>高级前端工程师 | 全栈开发者 | 技术爱好者</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📧</i> <a href="mailto:zhangsan@example.com">zhangsan@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <i>🌐</i> <a href="https://github.com/zhangsan" target="_blank">github.com/zhangsan</a>
+                </div>
+                <div class="contact-item">
+                    <i>📍</i> 北京市
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <i>💼</i>
+                <h2>工作经历</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>高级前端工程师</h3>
+                            <span class="company">阿里巴巴集团</span>
+                        </div>
+                        <span class="date">2021 - 至今</span>
+                    </div>
+                    <div class="timeline-description">
+                        <p>负责淘宝首页核心模块的开发与优化，主导前端架构升级，推动团队技术栈现代化。</p>
+                        <ul>
+                            <li>重构首页渲染架构，首屏加载时间优化40%</li>
+                            <li>设计并实现微前端架构，支持10+业务线独立部署</li>
+                            <li>带领5人团队完成多个核心项目的交付</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>前端开发工程师</h3>
+                            <span class="company">字节跳动</span>
+                        </div>
+                        <span class="date">2018 - 2021</span>
+                    </div>
+                    <div class="timeline-description">
+                        <p>参与抖音Web端产品的开发，负责核心功能模块的设计与实现。</p>
+                        <ul>
+                            <li>开发抖音直播Web端核心功能，日活用户超5000万</li>
+                            <li>优化视频播放性能，卡顿率降低30%</li>
+                            <li>主导搭建前端监控体系，实现全链路追踪</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>前端工程师</h3>
+                            <span class="company">腾讯科技</span>
+                        </div>
+                        <span class="date">2016 - 2018</span>
+                    </div>
+                    <div class="timeline-description">
+                        <p>负责QQ空间相关产品的前端开发，参与多个核心项目的迭代。</p>
+                        <ul>
+                            <li>开发QQ空间动态发布系统，支持富文本编辑</li>
+                            <li>实现图片懒加载和渐进式加载方案</li>
+                            <li>参与前端组件库的建设与维护</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <i>🛠️</i>
+                <h2>技术技能</h2>
+            </div>
+            <div class="skills">
+                <span class="skill-tag">JavaScript/TypeScript</span>
+                <span class="skill-tag">React/Vue</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">HTML5/CSS3</span>
+                <span class="skill-tag">Webpack/Vite</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">微前端</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <i>🎓</i>
+                <h2>教育背景</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>计算机科学与技术</h3>
+                            <span class="company">清华大学</span>
+                        </div>
+                        <span class="date">2012 - 2016</span>
+                    </div>
+                    <div class="timeline-description">
+                        <p>本科，GPA 3.8/4.0，获得优秀毕业生称号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <i>🏆</i>
+                <h2>项目经验</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>企业级组件库</h3>
+                            <span class="company">个人项目</span>
+                        </div>
+                        <span class="date">2022 - 至今</span>
+                    </div>
+                    <div class="timeline-description">
+                        <p>从零搭建一套完整的React组件库，包含50+高质量组件，支持主题定制和TypeScript。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>在线代码编辑器</h3>
+                            <span class="company">开源项目</span>
+                        </div>
+                        <span class="date">2021 - 2022</span>
+                    </div>
+                    <div class="timeline-description">
+                        <p>基于Monaco Editor开发的在线代码编辑器，支持实时预览和多语言语法高亮。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
