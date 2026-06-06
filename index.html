@@ -291,9 +291,14 @@
                 <h2>技术技能</h2>
             </div>
             <div class="skills">
-                <span class="skill-tag">C#/C++</span>
-                <span class="skill-tag">Unity</span>
-                <span class="skill-tag">Claude Code/Opencode</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">Unity3D</span>
+                <span class="skill-tag">URP/HDRP渲染管线</span>
+                <span class="skill-tag">Unity Addressables</span>
+                <span class="skill-tag">Tcp/Udp</span>
+                <span class="skill-tag">Shader</span>
+                <span class="skill-tag">数字孪生</span>
+                <span class="skill-tag">AI工具链</span>
                 <span class="skill-tag">Git</span>
             </div>
         </div>
@@ -312,18 +317,17 @@
                         <span class="date">2025 - 至今</span>
                     </div>
                     <div class="timeline-description">
-                        <p>负责公司级3D数字孪生SDK开发，推动团队技术栈现代化。</p>
+                        <p>负责公司级3D数字孪生SDK架构设计与核心开发，推动团队技术栈现代化与AI赋能。</p>
                         <ul>
-                            <li>设计并实现SDK架构，支持多条业务线独立部署</li>
-                            <li>推进SDD、Skill、MCP工具使用，AI赋能团队开发</li>
-                            <li>完成多个核心创新项目的交付</li>
+                            <li>设计并实现分层可扩展SDK架构，支撑安防、储能等多条业务线独立部署与快速集成</li>
+                            <li>自研3D场景编辑器与组件库，封装通用业务模块（设备可视化、数据绑定、动画状态机），支撑产线App迭代效率提升</li>
+                            <li>引入SDD（技能驱动开发）+ MCP工具链，构建AI辅助开发工作流，团队交付速度显著提升</li>
+                            <li>主导3D组件编辑器等核心创新项目从0到1的全流程交付</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
 
 
@@ -336,26 +340,38 @@
                     <div class="timeline-header">
                         <div>
                             <h3>安装商监控设备SaaS软件</h3>
-                            <span class="company"></span>
+                            <span class="company">（图片生成3D + 可视化安装方案）</span>
                         </div>
                         <span class="date">2025.7 - 2025.12</span>
                     </div>
                     <div class="timeline-description">
-                        <p>图生3D用户住宅庭院，可视化摄像头安装方案</p>
+                        <p>基于用户庭院图片自动化生成3D场景的数字孪生SaaS平台，支持摄像头安装方案的沉浸式可视化规划。</p>
+                        <ul>
+                            <li>实现图片到3D庭院场景的自动化重建流程，支持LOD分级加载，移动端流畅运行</li>
+                            <li>开发摄像头覆盖范围实时计算与可视化系统，支持多品牌设备选型与方案对比</li>
+                            <li>基于WebSocket实现方案数据的云端同步与多人协作编辑</li>
+                            <li>优化场景加载与渲染性能，首屏加载时间控制在3s以内</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-header">
                         <div>
-                            <h3>家庭储能设备系统</h3>
+                            <h3>家庭储能设备数字孪生系统</h3>
                         </div>
                         <span class="date">2025.12 - 2026.3</span>
                     </div>
                     <div class="timeline-description">
-                        <p>全屋能控系统，展示设备状态与设备间能量流转</p>
+                        <p>全屋能源控制数字孪生系统，实时展示光伏、储能、负载等设备状态及能量流转效果。</p>
+                        <ul>
+                            <li>基于MQTT协议接入光伏/逆变器/电池等IoT设备实时数据，秒级刷新设备状态</li>
+                            <li>自研能量流转动画系统（Shader + LineRenderer），直观展示电能流向与功率变化</li>
+                            <li>设计设备状态预警机制，异常数据触发3D高亮告警与推流转发</li>
+                            <li>支持WebGL与移动端双平台部署，兼顾桌面可视化与移动巡检场景</li>
+                        </ul>
                     </div>
                 </div>
-                                <div class="timeline-item">
+                <div class="timeline-item">
                     <div class="timeline-header">
                         <div>
                             <h3>3D组件编辑器</h3>
@@ -363,7 +379,13 @@
                         <span class="date">2026.3 - 至今</span>
                     </div>
                     <div class="timeline-description">
-                        <p>封装3D业务逻辑模块，制定app开发便捷工具</p>
+                        <p>面向业务线的低代码3D组件编辑器，封装通用数字孪生业务模块，提升App迭代效率。</p>
+                        <ul>
+                            <li>抽象通用3D组件体系（设备模型、数据仪表盘、拓扑连线、场景交互），支持可视化拖拽编排</li>
+                            <li>提供组件间数据绑定与事件联动机制，业务方无需编码即可搭建3D数字孪生页面</li>
+                            <li>基于URP实现组件渲染管线定制，支持运行时材质替换与主题切换</li>
+                            <li>设计组件热更新方案，通过Addressable实现按需加载，降低运行时内存占用</li>
+                        </ul>
                     </div>
                 </div>
             </div>
