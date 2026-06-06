@@ -7,18 +7,12 @@
     <title>邓连城 - 个人主页</title>
     <style>
         :root {
-            --bg-color: #f5f5f7;
-            /* Apple 浅灰背景 */
-            --card-bg: #ffffff;
+            --bg: #ffffff;
             --text-primary: #1d1d1f;
-            /* Apple 深黑 */
             --text-secondary: #86868b;
-            /* Apple 灰色 */
-            --accent-color: #0066cc;
-            /* Apple 蓝 */
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-            --radius: 18px;
+            --text-tertiary: #aeaeb2;
+            --accent: #0066cc;
+            --separator: #e5e5ea;
         }
 
         * {
@@ -28,227 +22,223 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            background: var(--bg);
             color: var(--text-primary);
-            line-height: 1.5;
+            line-height: 1.47059;
             -webkit-font-smoothing: antialiased;
-            padding: 40px 20px;
+            padding: 60px 24px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 780px;
             margin: 0 auto;
         }
 
-        /* Header Style */
+        /* ── Header ── */
         .header {
             text-align: center;
-            margin-bottom: 60px;
-            padding-top: 20px;
+            margin-bottom: 80px;
+            padding-top: 40px;
         }
 
         .header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
+            letter-spacing: -0.015em;
             color: var(--text-primary);
+            margin-bottom: 6px;
         }
 
-        .header p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
+        .header .subtitle {
+            font-size: 1.35rem;
             font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 28px;
+        }
+
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+        }
+
+        .contact-bar .dot {
+            color: #ccc;
+            font-size: 0.4rem;
+        }
+
+        .contact-bar a {
+            color: var(--text-tertiary);
+            text-decoration: none;
+        }
+
+        /* ── Section ── */
+        .section {
+            margin-bottom: 72px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--accent);
             margin-bottom: 24px;
         }
 
-        .contact-info {
+        /* ── Education ── */
+        .edu-row {
             display: flex;
-            justify-content: center;
-            gap: 24px;
+            justify-content: space-between;
+            align-items: baseline;
             flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .contact-item i {
-            margin-right: 8px;
-            font-style: normal;
-        }
-
-        .contact-item a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .contact-item a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        /* Card Style */
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            padding: 40px;
-            margin-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-        }
-
-        .card-title {
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e5e5ea;
-            padding-bottom: 15px;
-        }
-
-        .card-title h2 {
-            font-size: 1.5rem;
+        .edu-row h3 {
+            font-size: 1.1rem;
             font-weight: 600;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
         }
 
-        .card-title h2::before {
+        .edu-row .meta {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .edu-row .date {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ── Skills ── */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            padding: 4px 0;
+            border-bottom: 1px solid var(--separator);
+        }
+
+        .skill-tag + .skill-tag::before {
             content: '';
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-color);
+            width: 3px;
+            height: 3px;
+            background: var(--text-tertiary);
             border-radius: 50%;
-            margin-right: 12px;
+            margin: 0 12px 0 8px;
+            vertical-align: middle;
         }
 
-        /* Timeline Style - Simplified for Keynote look */
-        .timeline {
-            position: relative;
-        }
-
+        /* ── Timeline ── */
         .timeline-item {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 40px;
-            border-left: 2px solid #e5e5ea;
+            margin-bottom: 48px;
         }
 
         .timeline-item:last-child {
             margin-bottom: 0;
         }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 6px;
-            width: 8px;
-            height: 8px;
-            background: var(--card-bg);
-            border: 2px solid var(--accent-color);
-            border-radius: 50%;
-        }
-
         .timeline-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
+            margin-bottom: 6px;
         }
 
         .timeline-header h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            color: var(--text-primary);
+            letter-spacing: -0.01em;
         }
 
         .timeline-header .company {
-            display: block;
             font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
+            color: var(--text-primary);
+            font-weight: 400;
         }
 
         .timeline-header .date {
             font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            background: #f5f5f7;
-            padding: 4px 10px;
-            border-radius: 12px;
+            color: var(--text-tertiary);
+            font-weight: 400;
         }
 
         .timeline-description {
-            color: #424245;
-            font-size: 1rem;
+            color: var(--text-primary);
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
+        .timeline-description p {
+            margin-bottom: 10px;
+        }
+
         .timeline-description ul {
-            margin-top: 10px;
-            padding-left: 20px;
-            color: var(--text-secondary);
+            list-style: none;
+            padding: 0;
         }
 
         .timeline-description li {
-            margin-bottom: 6px;
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 5px;
         }
 
-        /* Skills Style */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+        .timeline-description li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--text-tertiary);
         }
 
-        .skill-tag {
-            background: #f5f5f7;
-            color: var(--text-primary);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
+        .timeline-item + .timeline-item {
+            padding-top: 40px;
+            border-top: 1px solid var(--separator);
         }
 
-        .skill-tag:hover {
-            background: #e8e8ed;
-            color: var(--accent-color);
-        }
-
+        /* ── Responsive ── */
         @media (max-width: 768px) {
             body {
-                padding: 20px 16px;
+                padding: 32px 20px;
             }
 
             .header h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
 
-            .card {
-                padding: 24px;
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                margin-bottom: 56px;
             }
 
             .timeline-header {
                 flex-direction: column;
-                gap: 4px;
-            }
-
-            .timeline-header .date {
-                align-self: flex-start;
+                gap: 2px;
             }
         }
     </style>
@@ -256,140 +246,126 @@
 
 <body>
     <div class="container">
+
         <div class="header">
             <h1>邓连城</h1>
-            <p>Unity开发 | 数字孪生 </p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i>📧</i> <a href="mailto:2872709276@qq.com">2872709276@qq.com</a>
-                </div>
-                <div class="contact-item">
-                    <i>📍</i> 深圳
-                </div>
+            <div class="subtitle">Unity 开发 &middot; 数字孪生</div>
+            <div class="contact-bar">
+                <span>2872709276@qq.com</span>
+                <span class="dot">&#x25CF;</span>
+                <span>深圳</span>
+                <span class="dot">&#x25CF;</span>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-title">
-                <h2>教育背景</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>自动化</h3>
-                            <span class="company">哈尔滨工业大学</span>
-                        </div>
-                        <span class="date">2021 - 2025</span>
-                    </div>
+        <div class="section">
+            <div class="section-title">教育背景</div>
+            <div class="edu-row">
+                <div>
+                    <h3>自动化</h3>
+                    <span class="meta">哈尔滨工业大学</span>
                 </div>
+                <span class="date">2021 &ndash; 2025</span>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-title">
-                <h2>技术技能</h2>
-            </div>
+        <div class="section">
+            <div class="section-title">技术技能</div>
             <div class="skills">
                 <span class="skill-tag">C#</span>
                 <span class="skill-tag">Unity3D</span>
-                <span class="skill-tag">URP/HDRP渲染管线</span>
-                <span class="skill-tag">Unity Addressables</span>
-                <span class="skill-tag">Tcp/Udp</span>
+                <span class="skill-tag">URP / HDRP</span>
+                <span class="skill-tag">Addressables</span>
+                <span class="skill-tag">Tcp / Udp</span>
                 <span class="skill-tag">Shader</span>
                 <span class="skill-tag">数字孪生</span>
-                <span class="skill-tag">AI工具链</span>
+                <span class="skill-tag">AI 工具链</span>
                 <span class="skill-tag">Git</span>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-title">
-                <h2>工作经历</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>Unity开发工程师</h3>
-                            <span class="company">安克创新</span>
-                        </div>
-                        <span class="date">2025 - 至今</span>
+        <div class="section">
+            <div class="section-title">工作经历</div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3>Unity 开发工程师</h3>
+                        <span class="company">安克创新</span>
                     </div>
-                    <div class="timeline-description">
-                        <p>负责公司级3D数字孪生SDK架构设计与核心开发，推动团队技术栈现代化与AI赋能。</p>
-                        <ul>
-                            <li>设计并实现分层可扩展SDK架构，支撑安防、储能等多条业务线独立部署与快速集成</li>
-                            <li>自研3D场景编辑器与组件库，封装通用业务模块（设备可视化、数据绑定、动画状态机），支撑产线App迭代效率提升</li>
-                            <li>引入SDD（技能驱动开发）+ MCP工具链，构建AI辅助开发工作流，团队交付速度显著提升</li>
-                            <li>主导3D组件编辑器等核心创新项目从0到1的全流程交付</li>
-                        </ul>
-                    </div>
+                    <span class="date">2025 &ndash; 至今</span>
+                </div>
+                <div class="timeline-description">
+                    <p>负责公司级 3D 数字孪生 SDK 架构设计与核心开发，推动团队技术栈现代化与 AI 赋能。</p>
+                    <ul>
+                        <li>设计并实现分层可扩展 SDK 架构，支撑安防、储能等多条业务线独立部署与快速集成</li>
+                        <li>自研 3D 场景编辑器与组件库，封装通用业务模块，支撑产线 App 迭代效率提升</li>
+                        <li>引入 SDD（技能驱动开发）+ MCP 工具链，构建 AI 辅助开发工作流，团队交付速度显著提升</li>
+                        <li>主导 3D 组件编辑器等核心创新项目从 0 到 1 的全流程交付</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
+        <div class="section">
+            <div class="section-title">项目经验</div>
 
-
-        <div class="card">
-            <div class="card-title">
-                <h2>项目经验</h2>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3>安装商监控设备 SaaS 软件</h3>
+                        <span class="company">图片生成 3D + 可视化安装方案</span>
+                    </div>
+                    <span class="date">2025.7 &ndash; 2025.12</span>
+                </div>
+                <div class="timeline-description">
+                    <p>基于用户庭院图片自动化生成 3D 场景的数字孪生 SaaS 平台，支持摄像头安装方案沉浸式可视化规划。</p>
+                    <ul>
+                        <li>实现图片到 3D 庭院场景的自动化重建流程，支持 LOD 分级加载，移动端流畅运行</li>
+                        <li>开发摄像头覆盖范围实时计算与可视化系统，支持多品牌设备选型与方案对比</li>
+                        <li>基于 WebSocket 实现方案数据的云端同步与多人协作编辑</li>
+                        <li>优化场景加载与渲染性能，首屏加载时间控制在 3s 以内</li>
+                    </ul>
+                </div>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>安装商监控设备SaaS软件</h3>
-                            <span class="company">（图片生成3D + 可视化安装方案）</span>
-                        </div>
-                        <span class="date">2025.7 - 2025.12</span>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3>家庭储能设备数字孪生系统</h3>
                     </div>
-                    <div class="timeline-description">
-                        <p>基于用户庭院图片自动化生成3D场景的数字孪生SaaS平台，支持摄像头安装方案的沉浸式可视化规划。</p>
-                        <ul>
-                            <li>实现图片到3D庭院场景的自动化重建流程，支持LOD分级加载，移动端流畅运行</li>
-                            <li>开发摄像头覆盖范围实时计算与可视化系统，支持多品牌设备选型与方案对比</li>
-                            <li>基于WebSocket实现方案数据的云端同步与多人协作编辑</li>
-                            <li>优化场景加载与渲染性能，首屏加载时间控制在3s以内</li>
-                        </ul>
-                    </div>
+                    <span class="date">2025.12 &ndash; 2026.3</span>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>家庭储能设备数字孪生系统</h3>
-                        </div>
-                        <span class="date">2025.12 - 2026.3</span>
-                    </div>
-                    <div class="timeline-description">
-                        <p>全屋能源控制数字孪生系统，实时展示光伏、储能、负载等设备状态及能量流转效果。</p>
-                        <ul>
-                            <li>基于MQTT协议接入光伏/逆变器/电池等IoT设备实时数据，秒级刷新设备状态</li>
-                            <li>自研能量流转动画系统（Shader + LineRenderer），直观展示电能流向与功率变化</li>
-                            <li>设计设备状态预警机制，异常数据触发3D高亮告警与推流转发</li>
-                            <li>支持WebGL与移动端双平台部署，兼顾桌面可视化与移动巡检场景</li>
-                        </ul>
-                    </div>
+                <div class="timeline-description">
+                    <p>全屋能源控制数字孪生系统，实时展示光伏、储能、负载等设备状态及能量流转效果。</p>
+                    <ul>
+                        <li>基于 MQTT 协议接入光伏 / 逆变器 / 电池等 IoT 设备实时数据，秒级刷新设备状态</li>
+                        <li>自研能量流转动画系统（Shader + LineRenderer），直观展示电能流向与功率变化</li>
+                        <li>设计设备状态预警机制，异常数据触发 3D 高亮告警与推流转发</li>
+                        <li>支持 WebGL 与移动端双平台部署，兼顾桌面可视化与移动巡检场景</li>
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>3D组件编辑器</h3>
-                        </div>
-                        <span class="date">2026.3 - 至今</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div>
+                        <h3>3D 组件编辑器</h3>
                     </div>
-                    <div class="timeline-description">
-                        <p>面向业务线的低代码3D组件编辑器，封装通用数字孪生业务模块，提升App迭代效率。</p>
-                        <ul>
-                            <li>抽象通用3D组件体系（设备模型、数据仪表盘、拓扑连线、场景交互），支持可视化拖拽编排</li>
-                            <li>提供组件间数据绑定与事件联动机制，业务方无需编码即可搭建3D数字孪生页面</li>
-                            <li>基于URP实现组件渲染管线定制，支持运行时材质替换与主题切换</li>
-                            <li>设计组件热更新方案，通过Addressable实现按需加载，降低运行时内存占用</li>
-                        </ul>
-                    </div>
+                    <span class="date">2026.3 &ndash; 至今</span>
+                </div>
+                <div class="timeline-description">
+                    <p>面向业务线的低代码 3D 组件编辑器，封装通用数字孪生业务模块，提升 App 迭代效率。</p>
+                    <ul>
+                        <li>抽象通用 3D 组件体系（设备模型、数据仪表盘、拓扑连线、场景交互），支持可视化拖拽编排</li>
+                        <li>提供组件间数据绑定与事件联动机制，业务方无需编码即可搭建 3D 数字孪生页面</li>
+                        <li>基于 URP 实现组件渲染管线定制，支持运行时材质替换与主题切换</li>
+                        <li>设计组件热更新方案，通过 Addressable 实现按需加载，降低运行时内存占用</li>
+                    </ul>
                 </div>
             </div>
         </div>
+
     </div>
 </body>
 
